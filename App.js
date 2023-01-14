@@ -29,13 +29,12 @@ export default function App() {
       // <Welcome />    
         // <History />
         <NativeBaseProvider>
-          {/* <AuthTab /> */}
-          {/* <Delivery /> */}
+          <AuthTab />
           {/* <FoodDetails /> */}
           {/* <History /> */}
           {/* <Orders /> */}
           {/* <Payment /> */}
-          <Welcome />
+          {/* <Welcome /> */}
         </NativeBaseProvider>
   );
 }

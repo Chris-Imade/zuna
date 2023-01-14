@@ -1,23 +1,40 @@
 import React from "react";
-import { StyleSheet, TouchableOpacity, View, Text } from "react-native";
+import { StyleSheet, TouchableOpacity, View, Text, SafeAreaView } from "react-native";
 import Button from "../components/Button";
+import CustomCarousel from "../components/carousel/CustomCarousel";
 import { colors } from "../components/shared";
 
 const FoodDetails = () => {
     return (
-        <View style={{
+        <SafeAreaView style={{
             flex: 1,
             alignItems: "center",
-            marginHorizontal: 20
+            paddingHorizontal: 20,
+            backgroundColor: colors.foodBg
         }}>
             <View style={{
                 flex: 1
             }}>
-                {/* Slider */}
+                <CustomCarousel />
             </View>
             <View style={{
                 flex: 1
             }}>
+                <View style={{
+                    justifyContent: 'center',
+                    alignItems: "center",
+                    marginBottom: 43
+                }}>
+                    <Text style={{
+                        fontFamily: "SF-Pro-Rounded-Bold",
+                        fontSize: 28,
+                    }}>Veggie tomato mix</Text>
+                    <Text style={{
+                        fontFamily: "SF-Pro-Rounded-Bold",
+                        color: colors.primary,
+                        fontSize: 22,
+                    }}>N1,900</Text>
+                </View>
                 <View>
                     <Text style={{
                         fontSize: 17
@@ -44,7 +61,7 @@ const FoodDetails = () => {
                     <Button btnText={styles.btnText} content={"Start Ordering"} />
                 </View>
             </View>
-        </View>
+        </SafeAreaView>
     )
 }
 

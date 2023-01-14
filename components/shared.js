@@ -5,7 +5,8 @@ export const colors = {
     white: "#ffffff",
     gray: "#B0B0B0",
     lightGray: "#E0E0E0",
-    bgGray: "#F5F5F8"
+    bgGray: "#F5F5F8",
+    foodBg: "#F6F6F9"
 }
 
 export const ScreenHeight = Dimensions.get("screen").height;
