@@ -1,7 +1,7 @@
 import React from "react";
-import { StyleSheet, TouchableOpacity, View, Text, SafeAreaView } from "react-native";
+import { StyleSheet, View, Text, SafeAreaView } from "react-native";
 import Button from "../components/Button";
-import CustomCarousel from "../components/carousel/CustomCarousel";
+import CustomSlider from "../components/carousel/CustomSlider";
 import { colors } from "../components/shared";
 
 const FoodDetails = () => {
@@ -15,7 +15,7 @@ const FoodDetails = () => {
             <View style={{
                 flex: 1
             }}>
-                <CustomCarousel />
+                <CustomSlider />
             </View>
             <View style={{
                 flex: 1

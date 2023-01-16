@@ -1,97 +1,91 @@
 import React from "react";
-import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
+import { Dimensions, StyleSheet, Text, TouchableOpacity, Image } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { View } from "react-native";
 import { images } from "../assets/images";
 import { colors } from "../components/shared";
-import { Button } from "../components";
-
 
 const Welcome = () => {
+    const navigation = useNavigation();
     return (
         <View style={styles.container}>
-        <StatusBar style="auto" />
-        <View style={{
-            paddingTop: 50,
-            flex: 1,
-        }}>
-            <Image 
-            resizeMode='contain'
-            source={images.Logo}
-            style={{
-                width: 73,
-                height: 73,
-            }}
-            />
-            <Text style={styles.bigText}>Food for Everyone</Text>
-        </View>
-        <View style={{ flex: 2, width: "100%", height: "100%" }}>
-            <Image 
-                source={images.Persons}
-                resizeMode={"cover"}
-                style={{
-                    width: "100%",
-                    height: "100%",
-                    marginTop: 100 
-                }}
-            />
-            <Image 
-                source={images.Blur}
-                resizeMode={"cover"}
-                style={{
-                    width: "100%",
-                    height: "100%",
-                    zIndex: 1,
-                    marginTop: -170
-                }}
-            />
+            <View style={styles.initialContent}>
+                <Image 
+                    source={images.Logo}
+                    style={{
+                        width: 73,
+                        height: 73
+                    }}
+                    resizeMode={"contain"}
+                />
+                <View style={styles.textContainer}>
+                    <Text style={styles.initialText}>Food for</Text>
+                    <Text style={styles.initialText}>Everyone</Text>
+                </View>
+            </View>
 
-        </View>
-        
-        <View style={{
-            width: "100%",
-        }}>
-            <TouchableOpacity
-                style={styles.btnStyle}
-                onPress={() => {}}>
-                    <Text style={styles.btnText}>{"Get Started"}</Text>
-            </TouchableOpacity>
-        </View>
-
+            <View>
+                <Image 
+                    source={images.Persons}
+                    resizeMode={"contain"}
+                    style={{
+                        width: 552.38,
+                        height: 483.05
+                    }}
+                />
+            </View>
+            <View style={styles.btnContainer}>
+                <TouchableOpacity style={styles.actionBtn} onPress={() => navigation.navigate("Auth")}>
+                    <Text style={styles.actionTxt}>Get Started</Text>
+                </TouchableOpacity>
+            </View>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      backgroundColor: colors.primary,
-      alignItems: "center",
-      justifyContent: "space-between",
+        backgroundColor: colors.primary,
+        width: Dimensions.get("screen").width,
+        height: Dimensions.get("screen").height,
+        alignItems: "center"
     },
-    btnStyle: {
-        borderRadius: 30,
-        backgroundColor: colors.white,
-        paddingHorizontal: 20,
-        paddingVertical: 20,
-        alignItems: "center",
-        justifyContent: "center",
-        marginVertical: 30,
-        marginHorizontal: 30,
-        zIndex: 10,
-        position: "relative",
+    initialContent: {
+        padding: 30,
+        flex: 1
     },
-    bigText: {
-        color: colors.primary,
+    initialText: {
         fontFamily: "SF-Pro-Rounded-Bold",
         fontWeight: "800",
         fontSize: 65,
-        lineHeight: 65,
-        marginTop: 37
+        color: colors.white,
+        lineHeight: 60
     },
-    btnText: {
-        color: colors.primary,
+    textContainer: {
+        marginTop: 31,
+        marginBottom: 75
+    },
+    actionTxt: {
         fontFamily: "SF-Pro-Rounded-Regular",
+        fontWeight: "600",
+        fontSize: 17,
+        color: colors.primary,
+    },
+    actionBtn: {
+        // marginTop: -20,
+        backgroundColor: colors.white,
+        width: "80%",
+        paddingVertical: 25,
+        borderRadius: 30,
+        alignItems: "center",
+        justifyContent: "center"
+    },
+    btnContainer: {
+        position: "absolute",
+        width: Dimensions.get("screen").width,
+        alignItems: "center",
+        bottom: 30
     }
-  });
+});
 
 export default Welcome;

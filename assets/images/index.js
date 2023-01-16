@@ -1,17 +1,25 @@
 import Logo from  "./app-logo.png";
-import Blur from "./blur.png";
-import Persons from "./person.png";
+import Persons from "./persons.png";
 import History from "./History.png";
 import Order from "./order.png";
 import Card from "./card.png";
 import Bank from "./bank.png";
+import HomeIcon from "./heroicons-solid_home.png";
+import heartOutline from "./heart-outlined.png";
+import HeartSolid from "./heart.png";
+import userOutline from "./user-outline.png";
+import userSolid from "./user-solid.png";
 
 export const images = {
     Logo,
-    Blur,
-    Persons,
     History,
     Order,
     Card,
-    Bank
+    Bank,
+    Persons,
+    HomeIcon,
+    heartOutline,
+    HeartSolid,
+    userOutline,
+    userSolid
 }

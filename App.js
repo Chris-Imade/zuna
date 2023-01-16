@@ -1,15 +1,7 @@
-import { View } from 'react-native';
 import { useFonts } from "expo-font";
 import { NativeBaseProvider } from "native-base";
-import { 
-  AuthTab,
-  Delivery,
-  FoodDetails,
-  History,
-  Orders,
-  Payment,
-  Welcome
-} from './screens';
+import { NavigationContainer } from '@react-navigation/native';
+import WorkFlow from './navigation/AppAuth';
 
 
 export default function App() {
@@ -26,15 +18,10 @@ export default function App() {
 
 
   return (
-      // <Welcome />    
-        // <History />
+    <NavigationContainer>
         <NativeBaseProvider>
-          <AuthTab />
-          {/* <FoodDetails /> */}
-          {/* <History /> */}
-          {/* <Orders /> */}
-          {/* <Payment /> */}
-          {/* <Welcome /> */}
+          <WorkFlow />
         </NativeBaseProvider>
+    </NavigationContainer>
   );
 }
