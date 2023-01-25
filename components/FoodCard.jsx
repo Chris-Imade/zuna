@@ -12,10 +12,11 @@ const FoodCard = ({ image, price, firstTitle, secondTitle }, props) => {
                 backgroundColor: colors.white,
                 justifyContent: "center",
                 alignItems: "center",
-                marginTop: 50,
+                marginTop: 70,
+                marginBottom: 20,
                 marginRight: 30,
-                height: 270,
-                width: 220,
+                height: 180,
+                width: 160,
                 shadowOffset: { height: 20, width: 12 },
                 shadowRadius: 30,
                 shadowColor: colors.lightGray
@@ -25,9 +26,9 @@ const FoodCard = ({ image, price, firstTitle, secondTitle }, props) => {
                 <Image 
                     source={image}
                     style={{
-                        width: 200,
-                        height: 200,
-                        marginTop: -90
+                        width: 130,
+                        height: 130,
+                        marginTop: -50
                     }}
                     resizeMode={"contain"}
                 />

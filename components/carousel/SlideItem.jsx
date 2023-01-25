@@ -1,5 +1,6 @@
 import React from "react";
-import { Image, View } from "react-native";
+import { Image, TouchableOpacity, View } from "react-native";
+import { colors } from "../shared";
 
 const SlideItem = ({ item }) => {
     return (

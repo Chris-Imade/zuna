@@ -1,4 +1,5 @@
 import React from "react";
+import { ScrollView } from "react-native";
 import { FlatList, View } from "react-native";
 import { dishes } from "../assets/images/dishes";
 import FoodCard from "./FoodCard";
@@ -45,12 +46,14 @@ const Foods = () => {
             paddingLeft: 30,
             flex: 1
         }}>
-            <FlatList 
-                horizontal={true}
-                data={data}
-                keyExtractor={(item) => item.id}
-                renderItem={({item}) => <FoodCard  firstTitle={item.firstTitle}  secondTitle={item.secondTitle}   image={item.image} price={item.price} key={item.id}/>}
-            />
+            <ScrollView style={{ paddingTop: 20, paddingBottom: 20 }}>
+                <FlatList 
+                    horizontal={true}
+                    data={data}
+                    keyExtractor={(item) => item.id}
+                    renderItem={({item}) => <FoodCard  firstTitle={item.firstTitle}  secondTitle={item.secondTitle}   image={item.image} price={item.price} key={item.id}/>}
+                />
+            </ScrollView>
         </View>
     )
 }

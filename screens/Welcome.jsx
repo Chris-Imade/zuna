@@ -5,6 +5,8 @@ import { View } from "react-native";
 import { images } from "../assets/images";
 import { colors } from "../components/shared";
 
+const { width, height } = Dimensions.get("screen");
+
 const Welcome = () => {
     const navigation = useNavigation();
     return (
@@ -82,9 +84,9 @@ const styles = StyleSheet.create({
     },
     btnContainer: {
         position: "absolute",
-        width: Dimensions.get("screen").width,
+        width,
         alignItems: "center",
-        bottom: 30
+        bottom: 60
     }
 });
 

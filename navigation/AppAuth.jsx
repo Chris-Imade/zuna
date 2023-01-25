@@ -3,14 +3,16 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { HomeIcon } from "react-native-heroicons/outline";
 import {  MaterialIcons } from "@expo/vector-icons";
 import React from "react";
-import { Image } from "react-native";
+import { Button, Image, TouchableOpacity } from "react-native";
 import { colors } from "../components/shared";
 import { 
     AuthTab, 
+    Cart, 
     FoodDetails, 
     History, 
     Home, 
     Payment, 
+    ProductSearch, 
     Welcome 
 } from "../screens";
 import { images } from "../assets/images";
@@ -31,10 +33,6 @@ const WorkFlow = () => {
                         elevation: 0,
                         shadowColor: colors.bgGray,
                         borderWidth: 0
-                    },
-                    headerRight: () => <MaterialIcons  name="shopping-cart" size={24} color={colors.gray} />,
-                    headerRightContainerStyle: {
-                        paddingRight: 30
                     }
                 }} 
                 initialRouteName={"Home"}
@@ -51,12 +49,16 @@ const WorkFlow = () => {
                             justifyContent: "center",
                             // alignItems: "center"
                         },
+                        headerShown: false,
+                        headerBackgroundContainerStyle: {
+                            backgroundColor: "transparent"
+                        } ,
                         tabBarIcon: ({ focused, color, size }) => focused 
                         ? <Image source={images.HomeIcon} style={{ width: 42, height: 42 }} resizeMode={"contain"} /> 
-                        : <HomeIcon size={24} color={"#ADADAF"} />
+                        : <HomeIcon size={24} color={"#ADADAF"} />, 
                     }}
-                    name="Home" 
-                    component={Home} 
+                    name="HomeStack" 
+                    component={HomeStack} 
                 />
                 <Tab.Screen 
                     options={{
@@ -137,6 +139,54 @@ const WorkFlow = () => {
             </Stack.Navigator>
         )
     }
+
+    const InitialStack = createNativeStackNavigator();
+
+    const HomeStack = () => {
+        return (
+            <InitialStack.Navigator screenOptions={{ headerTransparent: true }}>
+                <InitialStack.Screen name="Home" component={Home} 
+                options={{ 
+                    // headerShown: false,
+                        headerRight: () => (
+                            <TouchableOpacity style={{ marginRight: 30 }} onPress={() => {}}>
+                                <MaterialIcons  name="shopping-cart" size={24} color={colors.gray} />
+                            </TouchableOpacity>
+                        ),
+                        headerLeft: () => (
+                            <TouchableOpacity 
+                            style={{ 
+                                marginLeft: 30,
+                            }}>
+                                <Image 
+                                    source={images.Hamburger}
+                                    style={{
+                                        width: 22,
+                                        height: 14
+                                    }}
+                                    resizeMode={"contain"}
+                                />
+                            </TouchableOpacity>
+                        ),
+                        headerTitle: "",
+                        headerStyle: {
+                            backgroundColor: "#EFEEEE"
+                        },
+                        headerShadowVisible: false,
+                        
+                }} />
+                <InitialStack.Screen name="Details" component={FoodDetails} />
+                <InitialStack.Screen 
+                    options={{
+                        headerSearchBarOptions
+                    }}
+                    name="Search" 
+                    component={ProductSearch} />
+                <InitialStack.Screen name="Cart" component={Cart} />
+            </InitialStack.Navigator>
+        )
+    }
+
 
 
 

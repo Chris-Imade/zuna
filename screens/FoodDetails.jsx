@@ -1,13 +1,14 @@
 import React from "react";
-import { StyleSheet, View, Text, SafeAreaView } from "react-native";
+import { StyleSheet, View, Text, SafeAreaView, ScrollView } from "react-native";
 import Button from "../components/Button";
 import CustomSlider from "../components/carousel/CustomSlider";
 import { colors } from "../components/shared";
 
 const FoodDetails = () => {
     return (
-        <SafeAreaView style={{
-            flex: 1,
+        <ScrollView
+        showsVerticalScrollIndicator={false} 
+        contentContainerStyle={{
             alignItems: "center",
             paddingHorizontal: 20,
             backgroundColor: colors.foodBg
@@ -23,7 +24,7 @@ const FoodDetails = () => {
                 <View style={{
                     justifyContent: 'center',
                     alignItems: "center",
-                    marginBottom: 43
+                    marginBottom: 23
                 }}>
                     <Text style={{
                         fontFamily: "SF-Pro-Rounded-Bold",
@@ -61,7 +62,7 @@ const FoodDetails = () => {
                     <Button btnText={styles.btnText} content={"Start Ordering"} />
                 </View>
             </View>
-        </SafeAreaView>
+        </ScrollView>
     )
 }
 

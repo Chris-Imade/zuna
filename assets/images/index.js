@@ -9,6 +9,7 @@ import heartOutline from "./heart-outlined.png";
 import HeartSolid from "./heart.png";
 import userOutline from "./user-outline.png";
 import userSolid from "./user-solid.png";
+import Hamburger from "./hamburger.png";
 
 export const images = {
     Logo,
@@ -21,5 +22,6 @@ export const images = {
     heartOutline,
     HeartSolid,
     userOutline,
-    userSolid
+    userSolid,
+    Hamburger
 }
